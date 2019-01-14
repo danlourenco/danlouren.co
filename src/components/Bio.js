@@ -35,7 +35,8 @@ function Bio() {
               {` `}
               <a href={`https://twitter.com/${social.twitter}`}>
                 You should follow him on Twitter
-              </a> {`.`}
+              </a> {`or `} <a href={`https://github.com/danlourenco`}>GitHub</a>{`.`}
+
             </p>
           </div>
         )

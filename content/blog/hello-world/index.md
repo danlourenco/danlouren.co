@@ -1,21 +1,10 @@
 ---
 title: Hello World
-date: '2015-05-01T22:12:03.284Z'
+date: '2019-01-13'
 ---
 
-This is my first post on my new fake blog! How exciting!
+Just what the world needs: another blog.  However, I promise to keep the idle chatter to a minimum and discuss my learnings in my journey as a web developer.
 
-I'm sure I'll write a lot more interesting things in the future.
+I've recently written an article for [Auth0](https://auth0.com/blog/).  If you're interested in how to get Cypress.io E2E tests working with an Auth0 front-end application, stay tuned.  I'll link to it as soon as it's published.
 
-Oh, and here's a great quote from this Wikipedia on
-[salted duck eggs](http://en.wikipedia.org/wiki/Salted_duck_egg).
-
-> A salted duck egg is a Chinese preserved food product made by soaking duck
-> eggs in brine, or packing each egg in damp, salted charcoal. In Asian
-> supermarkets, these eggs are sometimes sold covered in a thick layer of salted
-> charcoal paste. The eggs may also be sold with the salted paste removed,
-> wrapped in plastic, and vacuum packed. From the salt curing process, the
-> salted duck eggs have a briny aroma, a gelatin-like egg white and a
-> firm-textured, round yolk that is bright orange-red in color.
-
-![Chinese Salty Egg](./salty_egg.jpg)
+(I told you I'd keep it short.)

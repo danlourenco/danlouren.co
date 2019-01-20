@@ -36,7 +36,6 @@ function Bio() {
               <a href={`https://twitter.com/${social.twitter}`}>
                 You should follow him on Twitter
               </a> {`or `} <a href={`https://github.com/danlourenco`}>GitHub</a>{`.`}
-
             </p>
           </div>
         )
@@ -47,7 +46,7 @@ function Bio() {
 
 const bioQuery = graphql`
   query BioQuery {
-    avatar: file(absolutePath: { regex: "/avatar.jpg/" }) {
+    avatar: file(absolutePath: { regex: "./avatar2.jpg/" }) {
       childImageSharp {
         fixed(width: 50, height: 50) {
           ...GatsbyImageSharpFixed

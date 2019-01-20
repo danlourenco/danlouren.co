@@ -7,4 +7,3 @@ Just what the world needs: another blog.  However, I promise to keep the idle ch
 
 I've recently written an article for [Auth0](https://auth0.com/blog/).  If you're interested in how to get Cypress.io E2E tests working with an Auth0 front-end application, stay tuned.  I'll link to it as soon as it's published.
 
-(I told you I'd keep it short.)

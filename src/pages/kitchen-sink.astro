@@ -1,17 +1,9 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title="Theme Kitchen Sink - Dan Lourenço" description="Design system showcase for Dan Lourenço's portfolio" />
-	</head>
-	<body class="bg-navy-950 text-slate-300">
-		<Header />
-		<main class="container mx-auto px-4 py-8 space-y-16">
+<BaseLayout title="Theme Kitchen Sink - Dan Lourenço" description="Design system showcase for Dan Lourenço's portfolio">
+	<div class="container mx-auto px-4 py-8 space-y-16">
 			<section class="py-20">
 				<h1 class="text-slate-100 text-5xl font-bold mb-4">Theme Kitchen Sink</h1>
 				<p class="text-slate-200 text-xl">
@@ -70,7 +62,5 @@ import Header from '../components/Header.astro';
 					</div>
 				</div>
 			</section>
-		</main>
-		<Footer />
-	</body>
-</html>
+	</div>
+</BaseLayout>

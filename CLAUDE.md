@@ -109,93 +109,65 @@ The entire site uses a cohesive terminal/command-line aesthetic that reinforces 
 
 - **Visual Hierarchy**: Aesthetic portions (prompt, path, $) at 50% opacity, meaningful content fully opaque and bold
 
-**Color Palette** (Semantic Design Tokens)
+**Color Palette** (Tailwind 4 OKLCH Implementation)
 ```css
-/* Base Colors - Current Theme: Deep Navy */
---color-bg-primary: #0a192f;      /* Main background */
---color-bg-secondary: #112240;    /* Card backgrounds, elevated surfaces */
---color-bg-tertiary: #233554;     /* Borders, dividers, subtle backgrounds */
+@theme {
+  /* Navy color scale - Dark theme backgrounds */
+  --color-navy-950: oklch(0.15 0.04 240);  /* #0a192f - Primary background */
+  --color-navy-900: oklch(0.18 0.04 240);  /* #112240 - Card backgrounds */
+  --color-navy-800: oklch(0.25 0.04 240);  /* #233554 - Borders, elevated surfaces */
+  
+  /* Slate color scale - Text hierarchy */
+  --color-slate-50: oklch(0.92 0.02 240);  /* #e6f1ff - Highest contrast text */
+  --color-slate-100: oklch(0.85 0.02 240); /* #ccd6f6 - Primary headings */
+  --color-slate-200: oklch(0.72 0.02 240); /* #a8b2d1 - Secondary content */
+  --color-slate-300: oklch(0.6 0.02 240);  /* #8892b0 - Body text */
+  
+  /* Accent colors - Brand highlights */
+  --color-teal-400: oklch(0.8 0.14 180);   /* #64ffda - Primary accent */
+  --color-fuchsia-400: oklch(0.7 0.24 320); /* #f57dff - Secondary accent */
+  --color-sky-400: oklch(0.72 0.16 220);   /* #57cbff - Tertiary accent */
+  
+  /* Semantic colors - Status indicators */
+  --color-emerald-500: oklch(0.64 0.17 150); /* #22c55e - Success */
+  --color-amber-500: oklch(0.7 0.15 70);     /* #f59e0b - Warning */
+  --color-red-500: oklch(0.59 0.22 25);      /* #ef4444 - Error */
+  --color-blue-500: oklch(0.58 0.16 260);    /* #3b82f6 - Info */
 
-/* Text Colors */
---color-text-primary: #ccd6f6;    /* Headings, high emphasis text */
---color-text-secondary: #a8b2d1;  /* Secondary text, medium emphasis */
---color-text-tertiary: #8892b0;   /* Body text, low emphasis */
---color-text-inverse: #e6f1ff;    /* Text on dark backgrounds, highest contrast */
-
-/* Accent Colors */
---color-accent-primary: #64ffda;  /* Primary actions, links, highlights */
---color-accent-secondary: #f57dff; /* Secondary accent (pink) */
---color-accent-tertiary: #57cbff;  /* Tertiary accent (blue) */
-
-/* Interactive States */
---color-accent-hover: rgba(100, 255, 218, 0.1); /* Hover backgrounds */
---color-accent-focus: rgba(100, 255, 218, 0.2);  /* Focus states */
---color-accent-active: rgba(100, 255, 218, 0.3); /* Active states */
-
-/* Semantic Colors */
---color-success: #22c55e;    /* Success states, positive actions */
---color-warning: #f59e0b;    /* Warnings, attention needed */
---color-error: #ef4444;      /* Errors, destructive actions */
---color-info: #3b82f6;       /* Information, neutral notifications */
-
-/* Terminal-specific Colors */
---color-terminal-prompt: var(--color-accent-primary);  /* Terminal prompt text */
---color-terminal-command: var(--color-text-primary);   /* Command text */
---color-terminal-output: var(--color-text-secondary);  /* Command output */
---color-terminal-comment: var(--color-text-tertiary);  /* Comments, metadata */
-
-/* Component-specific Tokens */
---color-code-bg: var(--color-bg-primary);
---color-code-text: var(--color-accent-primary);
---color-blockquote-border: var(--color-accent-primary);
---color-link: var(--color-accent-primary);
---color-link-hover: var(--color-text-inverse);
-
-/* Future Theme Support */
-/* 
-   Light Theme Example:
-   --color-bg-primary: #ffffff;
-   --color-bg-secondary: #f8fafc;
-   --color-bg-tertiary: #e2e8f0;
-   --color-text-primary: #1e293b;
-   --color-text-secondary: #475569;
-   --color-text-tertiary: #64748b;
-   
-   High Contrast Theme Example:
-   --color-bg-primary: #000000;
-   --color-text-primary: #ffffff;
-   --color-accent-primary: #00ff00;
-*/
+  /* Typography */
+  --font-family-sans: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', system-ui, sans-serif;
+  --font-family-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+}
 ```
 
-**Theme Implementation Strategy**
-```css
-/* Base theme (default) */
-[data-theme="dark"] {
-  /* Current navy theme tokens above */
-}
+**Using Colors in Components**
+```html
+<!-- Background colors -->
+<div class="bg-navy-950">Primary background</div>
+<div class="bg-navy-900">Card background</div>
+<div class="bg-navy-800">Elevated surface</div>
 
-/* Future themes */
-[data-theme="light"] {
-  --color-bg-primary: #ffffff;
-  --color-bg-secondary: #f8fafc;
-  --color-bg-tertiary: #e2e8f0;
-  --color-text-primary: #1e293b;
-  --color-text-secondary: #475569;
-  --color-text-tertiary: #64748b;
-  --color-text-inverse: #ffffff;
-  --color-accent-primary: #059669; /* Adjusted for light theme */
-  /* ... other semantic mappings */
-}
+<!-- Text colors -->
+<h1 class="text-slate-100">Primary heading</h1>
+<p class="text-slate-200">Secondary content</p>
+<span class="text-slate-300">Body text</span>
 
-[data-theme="high-contrast"] {
-  --color-bg-primary: #000000;
-  --color-bg-secondary: #1a1a1a;
-  --color-text-primary: #ffffff;
-  --color-accent-primary: #00ff00;
-  /* ... high contrast mappings */
-}
+<!-- Accent colors -->
+<a class="text-teal-400 hover:text-slate-50">Primary link</a>
+<button class="bg-teal-400 text-navy-950">Primary button</button>
+<span class="text-fuchsia-400">Secondary accent</span>
+
+<!-- Semantic colors -->
+<div class="text-emerald-500">Success message</div>
+<div class="text-amber-500">Warning message</div>
+<div class="text-red-500">Error message</div>
 ```
+
+**Future Theme Support**
+The OKLCH color system provides excellent foundation for future themes:
+- Light theme: Invert lightness values while maintaining chroma/hue
+- High contrast: Increase chroma values for better accessibility
+- Custom themes: Easy to adjust hue while keeping consistent lightness scales
 
 **Typography**
 - **Primary**: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', system-ui, sans-serif
@@ -393,28 +365,36 @@ Article content with markdown support...
 
 ## Implementation Checklist
 
-### Phase 1: Core Site
-- [ ] Set up Astro project with TypeScript
-- [ ] Implement design system with CSS custom properties
-- [ ] Create terminal-themed components
-- [ ] Build homepage with hero, about, projects sections
-- [ ] Implement responsive design with mobile-first approach
+### Phase 1: Core Site ✅ **COMPLETED**
+- [x] Set up Astro project with TypeScript
+- [x] Implement design system with Tailwind 4 and OKLCH colors
+- [x] Create terminal-themed components and styling
+- [x] Build homepage with basic structure and theming
+- [x] Implement responsive design foundation
+- [x] Create kitchen-sink page for design system showcase
 
-### Phase 2: Blog System
+### Phase 2: Content Structure 📋 **IN PROGRESS**
+- [ ] Build hero section with terminal aesthetic
+- [ ] Create about section with personal brand messaging
+- [ ] Implement projects showcase section
+- [ ] Add proper navigation and internal linking
+- [ ] Create proper page layouts and templates
+
+### Phase 3: Blog System 📋 **PLANNED**
 - [ ] Set up markdown processing for blog posts
 - [ ] Create blog listing and individual post layouts
 - [ ] Implement terminal-themed blog post design
 - [ ] Add RSS feed generation
 - [ ] Create tag-based filtering system
 
-### Phase 3: Advanced Features
+### Phase 4: Advanced Features 📋 **PLANNED**
 - [ ] Add search functionality
 - [ ] Implement carbon-aware features
 - [ ] Set up analytics (privacy-focused)
 - [ ] Create contact form with validation
 - [ ] Add progressive web app features
 
-### Phase 4: Content & Launch
+### Phase 5: Content & Launch 📋 **PLANNED**
 - [ ] Write initial blog posts
 - [ ] Create project case studies
 - [ ] Optimize for performance and accessibility
@@ -473,11 +453,7 @@ This document should serve as your comprehensive guide for building Dan's portfo
 - **Development server**: `npm run dev` - Starts Astro dev server on http://localhost:4321
 - **Build production**: `npm run build` - Creates optimized production build in ./dist
 - **Preview production**: `npm run preview` - Preview production build locally
-- **Linting**: [To be configured with ESLint]
 - **Type checking**: `npm run astro check` - TypeScript type checking
-- **Testing**: `npm run test` - Run tests with Vitest
-- **Test watch**: `npm run test:watch` - Run tests in watch mode
-- **Test coverage**: `npm run test:coverage` - Generate test coverage report
 
 ### Development Setup
 ```bash
@@ -489,18 +465,60 @@ npm run dev
 
 # Before committing
 npm run build  # Ensure build succeeds
-npm run test   # Ensure tests pass
 ```
 
 ### Environment Variables
 ```env
 # .env.local (for local development)
 PUBLIC_SITE_URL=http://localhost:4321
-PUBLIC_GA_MEASUREMENT_ID=your-ga-id  # Optional analytics
 
 # Production environment variables
 PUBLIC_SITE_URL=https://www.danlouren.co
 ```
+
+### Current Project Status (Updated)
+✅ **Completed:**
+- Tailwind 4 setup with OKLCH color tokens
+- Design system implementation with semantic colors
+- Kitchen sink page for design token showcase (/kitchen-sink)
+- Updated index.astro with proper theming
+- Header/Footer component updates
+- Typography plugin integration
+
+📋 **Next Steps:**
+- Implement actual portfolio content and sections
+- Create blog system with markdown processing
+- Add project case studies and portfolio items
+- Implement contact form functionality
+- Set up deployment pipeline
+
+### Current File Structure
+```
+src/
+├── components/
+│   ├── BaseHead.astro     ✅ Meta tags and SEO
+│   ├── Footer.astro       ✅ Updated with cleaner layout
+│   ├── Header.astro       ✅ Updated with navigation
+│   └── HeaderLink.astro   ✅ Navigation link component
+├── layouts/
+│   └── BlogPost.astro     📋 Needs terminal theming
+├── pages/
+│   ├── index.astro        ✅ Updated with Tailwind theming
+│   ├── kitchen-sink.astro ✅ Design system showcase
+│   ├── about.astro        📋 Needs implementation
+│   └── blog/              📋 Needs markdown processing
+├── styles/
+│   └── global.css         ✅ Tailwind 4 + OKLCH colors
+└── content/
+    └── blog/              📋 Existing blog posts need theming
+```
+
+### Key Design Tokens Available
+- **Backgrounds**: `bg-navy-950`, `bg-navy-900`, `bg-navy-800`
+- **Text**: `text-slate-50`, `text-slate-100`, `text-slate-200`, `text-slate-300`
+- **Accents**: `text-teal-400`, `text-fuchsia-400`, `text-sky-400`
+- **Semantic**: `text-emerald-500` (success), `text-amber-500` (warning), `text-red-500` (error)
+- **Typography**: `font-sans`, `font-mono`
 
 ---
 

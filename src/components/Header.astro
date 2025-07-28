@@ -3,8 +3,11 @@ import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
 ---
 
-<header class="bg-navy-950 border-b border-navy-800 px-4 md:px-6">
-	<nav class="flex items-center justify-between py-4 max-w-6xl mx-auto">
+<header class="bg-navy-950 border-b border-navy-800">
+	<!-- Hidden checkbox for mobile menu toggle (CSS-only solution) -->
+	<input type="checkbox" id="mobile-menu-toggle" class="hidden peer" />
+	
+	<nav class="flex items-center justify-between py-4 container mx-auto px-4">
 		<!-- Brand / Logo -->
 		<div class="flex items-center">
 			<h2 class="text-slate-100 font-mono text-lg font-semibold m-0">
@@ -14,7 +17,7 @@ import HeaderLink from './HeaderLink.astro';
 			</h2>
 		</div>
 
-		<!-- Navigation Links -->
+		<!-- Desktop Navigation Links -->
 		<div class="hidden md:flex items-center space-x-1">
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
@@ -22,7 +25,7 @@ import HeaderLink from './HeaderLink.astro';
 			<HeaderLink href="/kitchen-sink" class="text-slate-300">Kitchen Sink</HeaderLink>
 		</div>
 
-		<!-- Social Links -->
+		<!-- Desktop Social Links -->
 		<div class="hidden md:flex items-center space-x-4">
 			<a 
 				href="https://github.com/withastro/astro" 
@@ -36,14 +39,52 @@ import HeaderLink from './HeaderLink.astro';
 			</a>
 		</div>
 
-		<!-- Mobile Menu Button (for future implementation) -->
-		<button 
-			class="md:hidden text-slate-300 hover:text-teal-400 transition-colors"
+		<!-- Mobile Menu Toggle Button -->
+		<label 
+			for="mobile-menu-toggle"
+			class="md:hidden text-slate-300 hover:text-teal-400 transition-colors cursor-pointer"
 			aria-label="Toggle navigation menu"
 		>
-			<svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
-				<path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+			<svg viewBox="0 0 24 24" class="w-6 h-6 stroke-current">
+				<path d="M3 12h18M3 6h18M3 18h18" stroke-width="2" stroke-linecap="round"/>
 			</svg>
-		</button>
+		</label>
 	</nav>
+
+	<!-- Mobile Navigation Menu -->
+	<div class="md:hidden overflow-hidden max-h-0 peer-checked:max-h-96 transition-all duration-300 ease-in-out border-t border-navy-800">
+		<nav class="px-4 py-6 space-y-4">
+			<!-- Mobile Navigation Links -->
+			<div class="space-y-2">
+				<a href="/" class="block py-2 text-slate-200 hover:text-teal-400 transition-colors font-mono">
+					Home
+				</a>
+				<a href="/blog" class="block py-2 text-slate-200 hover:text-teal-400 transition-colors font-mono">
+					Blog
+				</a>
+				<a href="/about" class="block py-2 text-slate-200 hover:text-teal-400 transition-colors font-mono">
+					About
+				</a>
+				<a href="/kitchen-sink" class="block py-2 text-slate-300 hover:text-teal-400 transition-colors font-mono">
+					Kitchen Sink
+				</a>
+			</div>
+			
+			<!-- Mobile Social Links -->
+			<div class="pt-4 border-t border-navy-800">
+				<div class="flex items-center gap-4">
+					<a 
+						href="https://github.com/withastro/astro" 
+						target="_blank"
+						class="text-slate-300 hover:text-teal-400 transition-colors"
+						aria-label="Go to Astro's GitHub repo"
+					>
+						<svg viewBox="0 0 16 16" aria-hidden="true" class="w-5 h-5 fill-current">
+							<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+						</svg>
+					</a>
+				</div>
+			</div>
+		</nav>
+	</div>
 </header>

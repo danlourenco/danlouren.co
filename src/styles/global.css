@@ -1,6 +1,17 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* Cross-browser solution for consistent scrollbar gutter */
+html {
+  /* Modern browsers: Reserve space for scrollbar */
+  scrollbar-gutter: stable;
+  
+  /* Safari fallback: Force scrollbar space with padding */
+  @supports not (scrollbar-gutter: stable) {
+    padding-right: calc(100vw - 100%);
+  }
+}
+
 @theme {
   /* Define color tokens using OKLCH for Tailwind 4 */
   --color-navy-950: oklch(0.15 0.04 240);  /* #0a192f equivalent */

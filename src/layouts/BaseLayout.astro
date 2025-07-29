@@ -1,5 +1,6 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
+import { ViewTransitions } from 'astro:transitions';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -16,8 +17,9 @@ const { title, description, ...props } = Astro.props;
 <html lang="en" {...props}>
   <head>
     <BaseHead title={title} description={description} />
+    <ViewTransitions />
   </head>
-  <body class="bg-navy-950 text-slate-300 min-h-screen">
+  <body class="bg-navy-900 text-slate-300 min-h-screen">
     <Header />
     <main>
       <slot />

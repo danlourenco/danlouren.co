@@ -1,67 +1,163 @@
 ---
-import { Image } from 'astro:assets';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import AboutHeroImage from "../assets/blog-placeholder-about.jpg";
 ---
 
-<BaseLayout title="About Me" description="Learn more about Dan Lourenço, a thoughtful technologist building sustainable and accessible digital experiences.">
-	<div class="container mx-auto px-4 py-8">
-		<!-- Hero Section -->
-		<header class="mb-12">
-			<h1 class="text-slate-100 text-4xl md:text-5xl font-bold mb-8 font-mono">
-				<span class="text-teal-400">$</span> whoami
-			</h1>
-			
-			<div class="mb-8">
-				<Image 
-					width={800} 
-					height={400} 
-					src={AboutHeroImage} 
-					alt="About Dan Lourenço"
-					class="w-full max-w-2xl mx-auto rounded-lg border border-navy-800"
-				/>
-			</div>
-		</header>
+<BaseLayout
+  title="About Me"
+  description="Learn more about Dan Lourenço, a thoughtful technologist building sustainable and accessible digital experiences."
+>
+  <div class="container mx-auto px-4 py-8">
+    <!-- Hero Section -->
+    <header class="mb-12">
+      <h1 class="text-slate-100 text-4xl md:text-5xl font-bold mb-8 font-mono">
+        <span class="text-teal-400">$</span> whoami
+      </h1>
 
-		<!-- Content -->
-		<div class="prose prose-invert prose-slate max-w-none">
-			<div class="text-slate-200 leading-relaxed space-y-6">
-				<p>
-					I believe technology should amplify human potential, not exploit human psychology. 
-					My approach combines analytical precision with creative insight to build solutions 
-					that are both technically excellent and meaningfully impactful.
-				</p>
+      <div class="mb-8">
+        <Image
+          width={800}
+          height={400}
+          src={AboutHeroImage}
+          alt="About Dan Lourenço"
+          class="w-full max-w-2xl mx-auto rounded-lg border border-navy-800"
+        />
+      </div>
+    </header>
 
-				<p>
-					As an introvert who thrives in deep work, I bring sustained focus to complex problems 
-					and find elegant solutions within real-world constraints. I'm drawn to projects that 
-					align with sustainability and positive social impact.
-				</p>
+    <!-- Content -->
+    <div class="prose prose-invert prose-slate max-w-none">
+      <div class="text-slate-200 leading-relaxed space-y-6">
+        <h2>Hey, I'm Dan.</h2>
+        <p>
+          I'm a front-end architect who builds thoughtful, accessible digital
+          experiences that put users first.
+        </p>
 
-				<p>
-					My work spans the full stack, from thoughtful user interfaces to robust backend systems. 
-					I specialize in creating sustainable, accessible, and performant web experiences that 
-					serve users rather than exploit them.
-				</p>
+        <p>
+          My professional journey spans over a decade working with organizations
+          &mdash; from scrappy startups to Fortune 500 enterprises &mdash; with
+          a focus on creating web applications that improve people's lives. I've
+          led complete platform modernizations for national restaurant chains,
+          built accessible government systems serving millions of citizens, and
+          architected financial tools that help advisors better serve their
+          clients.
+        </p>
 
-				<p>
-					When I'm not coding, I'm probably thinking about the intersection of technology and human 
-					dignity, exploring ways to make the web more sustainable, or diving deep into a new 
-					technical challenge that caught my interest.
-				</p>
+        <p>
+          I approach every project with curiosity about the real problems we're
+          solving and the people who will ultimately use what we build. This
+          perspective, combined with my technical expertise in modern web,
+          accessibility standards, and JavaScript frameworks, allows me to
+          deliver solutions that are robust and impactful.
+        </p>
 
-				<div class="bg-navy-900 border border-navy-800 rounded-lg p-6 mt-8">
-					<h2 class="text-slate-100 text-xl font-semibold mb-4 font-mono">
-						<span class="text-teal-400">$</span> cat values.txt
-					</h2>
-					<ul class="text-slate-200 space-y-2">
-						<li>• Quality implementation over rapid feature delivery</li>
-						<li>• Sustainable solutions over quick fixes</li>
-						<li>• Human dignity in digital experiences</li>
-						<li>• Meaningful collaboration over superficial networking</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+        <h2>What Drives Me</h2>
+
+        <p>
+          I'm passionate about using technology to create positive social impact
+          and improve people's lives. I'm drawn to work that aligns with my
+          values &mdash; particularly in sustainability, electrification, and
+          climate tech. I thrive in complex problem spaces where good UX meets
+          systems thinking.
+        </p>
+
+        <p>
+          I believe technology should empower people, not manipulate them for
+          engagement or profit. This philosophy guides everything from my
+          approach to accessibility testing, to my choice of projects and the
+          teams I want to work with.
+        </p>
+
+        <h2>My Approach</h2>
+
+        <p>
+          <strong>Thoughtful Innovation:</strong> I don't chase <em>every</em> framework
+          or trend. Instead, I focus on understanding the unique needs of each project
+          and selecting the right tools and technologies to meet those needs.
+        </p>
+
+        <p>
+          <strong>Knowledge Sharing:</strong> My colleagues often recognize my mentoring
+          and teaching abilities, and I enjoy helping others grow their skills and
+          knowledge. I believe the best technical work happens when teams level up
+          together
+        </p>
+
+        <p>
+          <strong>Systems Thinking:</strong> Having worked across regulated industries
+          like finance and government, I understand how to build within constrains
+          while still delivering best-in-class user experiences.
+        </p>
+
+        <h2>Current Focus</h2>
+
+        <p>
+          I'm seeking my next chapter with mission-driven teams &mdash;
+          particularly in climate tech and sustainability &mdash; where
+          thoughtful innovation meets meaningful impact. I want to contribute to
+          solutions that don't just work well technically, but actually make the
+          world a little better.
+        </p>
+
+        <h2>Technical Strengths</h2>
+
+        <ul class="text-slate-200 pl-4">
+          <li>
+            <strong>Frontend Frameworks:</strong> React, Vue/Nuxt, Svelte, Astro
+          </li>
+          <li>
+            <strong>Languages:</strong> JavaScript, TypeScript, HTML, CSS, Python
+          </li>
+          <li>
+            <strong>Backend & Runtime:</strong> Node.js, Fastify, Express, Hono
+          </li>
+          <li>
+            <strong>Styling & UI:</strong> TailwindCSS, Styled Components, Modern
+            CSS
+          </li>
+          <li>
+            <strong>Testing:</strong> Vitest, Jest, Testing Library, Mock Service
+            Worker, Cypress, Playwright
+          </li>
+          <li><strong>State Management Libraries:</strong> Redux, Pinia</li>
+          <li>
+            <strong>DevOps & Build:</strong> GitHub/GitHub Actions, Jenkins, Vite
+          </li>
+          <li>
+            <strong>Cloud & Infrastructure:</strong> AWS, Lambda, DynamoDB, Cloudflare
+            Workers
+          </li>
+        </ul>
+
+		<h2>Select Career Highlights</h2>
+
+        <ul class="text-slate-200 pl-4">
+          <li>
+            <strong>Federal Agency:</strong> Led accessible, modern micro-frontend implementation for public benefits verification platform, conducted tool modernization discovery, and made significant individual contributions for case verification UI, enabling the expedited processing of millions of applications.
+          </li>
+          <li>
+            <strong>Major American Bank:</strong> Architected financial instrument self-service platform as tech lead for a cross-functional team. Collaborated across AWS infrastructure (Lambda, S3, DynamoDB). Led sprint planning, daily standups, retrospectives, and other agile ceremonies. Mentored junior developers and drove technical decision-making while managing client relationships and team transitions.
+          </li>
+		  <li>
+            <strong>Global Athletic Apparel and Footwear Company:</strong> One of two founding front-end engineers chosen to architect a greenfield e-commerce platform for a major global brand, leveraging their existing sneaker customization tool. The project empowered influencers and creators to design, market, and sell personalized sneakers via an internal campaign builder.  Built three distinct experiences: a public-facing storefront, an internal admin dashboard, and a marketing campaign builder. Reverse engineered the existing production checkout system to be used for our product.
+          </li>
+         
+        </ul>
+
+        <div class="bg-navy-900 border border-navy-800 rounded-lg pl-6">
+          <h2 class="text-slate-100 text-xl font-semibold font-mono leading-0">
+            <span class="text-teal-400">$</span> cat values.txt
+          </h2>
+          <ul class="text-slate-200 pl-4">
+            <li>Quality implementation over rapid feature delivery</li>
+            <li>Sustainable solutions over quick fixes</li>
+            <li>Human dignity in digital experiences</li>
+            <li>Meaningful collaboration over superficial networking</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </BaseLayout>

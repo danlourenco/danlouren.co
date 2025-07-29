@@ -1,7 +1,14 @@
 {
-    "name": "danlouren.co",
-    "compatibility_date": "2025-07-29",
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "danlourenco",
+    "compatibility_date": "2025-07-12",
     "assets": {
         "directory": "./dist"
-    }
+    },
+    "routes": [
+        {
+            "pattern": "danlouren.co",
+            "custom_domain": true
+        }
+    ],
 }
